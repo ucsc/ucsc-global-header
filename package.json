@@ -1,0 +1,73 @@
+{
+    "name": "ucsc-omnibar",
+    "version": "1.0.0",
+    "description": "Gulp, etc for my new plugin",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Herm71/blackbird-starter-plugin.git"
+    },
+    "keywords": [
+        "wordpress"
+    ],
+    "author": "@herm71",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Herm71/blackbird-starter-plugin/issues"
+    },
+    "homepage": "https://github.com/Herm71/blackbird-starter-plugin#readme",
+    "paths": {
+        "tasks": "gulp-tasks/",
+        "src": "project/",
+        "build": "_dist/",
+        "bower": "bower_components/",
+        "vendor": {
+            "src": "project/js/lib/",
+            "dest": "_dist/js/"
+        },
+        "js": {
+            "src": "assets/js/",
+            "dest": "assets/js/"
+        },
+        "scss": {
+            "src": "assets/scss/"
+        },
+        "css": {
+            "src": "assets/css/",
+            "dest": "./"
+        },
+        "img": {
+            "src": "assets/img/",
+            "dest": "assets/img/"
+        }
+    },
+    "devDependencies": {
+        "bourbon": "^4.2.6",
+        "bourbon-neat": "^3.0.0",
+        "css-mqpacker": "^5.0.1",
+        "gulp": "^4.0.2",
+        "gulp-auto-task": "^0.0.1",
+        "gulp-autoprefixer": "^7.0.0",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-livereload": "^4.0.1",
+        "gulp-notify": "^3.2.0",
+        "gulp-plumber": "^1.1.0",
+        "gulp-postcss": "^6.1.1",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^4.0.2",
+        "gulp-sass-lint": "^1.2.0",
+        "gulp-sourcemaps": "^1.6.0",
+        "require-dir": "^1.2.0",
+        "run-sequence": "^2.2.1",
+        "sass-rem": "^1.2.2"
+    },
+    "browserslist": [
+        "last 1 version",
+        "> 1%",
+        "maintained node versions",
+        "not dead"
+    ]
+}
