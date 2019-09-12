@@ -54,16 +54,12 @@ function handleErrors() {
  */
 gulp.task('postcss', function () {
     return gulp.src(paths.scss.src + 'main.scss')
-        // return gulp.src('assets/scss/main.scss')
-
         // Error handling
         .pipe(plumber({
             errorHandler: handleErrors
         }))
-
         // Wrap tasks in a sourcemap
         .pipe(sourcemaps.init())
-
         .pipe(sass({
             includePaths: [].concat(bourbon, neat),
             errLogToConsole: true,
@@ -71,19 +67,14 @@ gulp.task('postcss', function () {
         }))
         // livereload
         .pipe(livereload())
-
         .pipe(postcss([
             autoprefixer()
         ]))
-
         // creates the sourcemap
         .pipe(sourcemaps.write())
         // rename
         .pipe(rename('style.css'))
-        // .pipe(gulp.dest('./'));
         .pipe(gulp.dest(paths.css.dest));
-
-
 });
 
 gulp.task('css:minify', gulp.series('postcss'), function () {

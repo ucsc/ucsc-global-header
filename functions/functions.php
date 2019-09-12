@@ -28,4 +28,44 @@ function display_text_before_header()
 {
     echo '<div class="add-text">Add Your Own Text or HTML Here</div>';
 };
-add_action('ucsc_before_header', 'display_text_before_header', 5);
+// add_action('ucsc_before_header', 'display_text_before_header', 5);
+
+/**
+ * Customize Site Header
+ */
+//Add top row
+add_action('ucsc_before_header', 'bb_add_top_row');
+function bb_add_top_row()
+{
+    $logo = plugin_dir_url(__FILE__) . '../assets/img/logo-abbr.png';
+    // Change $custom_title text as you wish
+    $custom_title = '<a href="/"><img class="header-logo" src="' . $logo . '" alt="UCSC Logo" ></a>';
+    echo '<div class="page-top">';
+    echo '<div class="row">';
+    // echo '<div class="top-row-wrap">';
+    echo '<div class="page-top-left">';
+    // echo '<div class="top-row-left-wrap">';
+    echo $custom_title;
+    // echo '</div>';
+    echo '</div>';
+    echo '<div class="page-top-right">';
+    ?><ul id="topNav" class="menu">
+    <li id="menu-item-2776" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2776"><a
+            href="http://my.ucsc.edu/" itemprop="url">MyUCSC</a></li>
+    <li id="menu-item-2777" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2777"><a
+            href="https://www.ucsc.edu/tools/people.html" itemprop="url">People</a></li>
+    <li id="menu-item-2778" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2778"><a
+            href="https://www.ucsc.edu/tools/calendars.html" itemprop="url">Calendars</a></li>
+    <li id="menu-item-2779" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2779"><a
+            href="https://www.ucsc.edu/tools/azindex.html" itemprop="url">A-Z Index</a></li>
+</ul>
+<aside><?php get_search_form('true', 'walter') ?></aside><?php
+                                                                    // genesis_widget_area('top-row-search');
+                                                                    //  wp_nav_menu(array(
+                                                                    //     'menu' => 'Top Row Menu'
+                                                                    // ));
+                                                                    echo '</div>';
+                                                                    // echo '</div>';
+                                                                    echo '</div>';
+                                                                    echo '</div>';
+                                                                }
