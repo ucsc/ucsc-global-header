@@ -3,13 +3,13 @@
 /**
  * Enqueue scripts and styles.
  */
-function ucsc_omnibar_scripts()
+function ucsc_global_header_scripts()
 {
     $file_url = plugins_url('style.css', dirname(__FILE__));
     wp_enqueue_style('ucsc_global_header', $file_url);
 }
 
-add_action('wp_enqueue_scripts', 'ucsc_omnibar_scripts');
+add_action('wp_enqueue_scripts', 'ucsc_global_header_scripts');
 
 /**
  * Add to hooks already set up in theme.
