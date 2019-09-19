@@ -1,43 +1,32 @@
 {
-  "name": "ucsc-omnibar",
+  "name": "ucsc-global-header",
   "version": "1.0.0",
-  "description": "Gulp, etc for my new plugin",
+  "description": "Gulp tasks to generate styles for UCSC Global Header WordPress plugin",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Herm71/blackbird-starter-plugin.git"
+    "url": "git+https://github.com/ucsc/ucsc-global-header.git"
   },
   "keywords": [
     "wordpress"
   ],
   "author": "@herm71",
-  "license": "ISC",
+  "license": "GPL2",
   "bugs": {
-    "url": "https://github.com/Herm71/blackbird-starter-plugin/issues"
+    "url": "https://github.com/ucsc/ucsc-global-header/issues"
   },
-  "homepage": "https://github.com/Herm71/blackbird-starter-plugin#readme",
+  "homepage": "https://github.com/ucsc/ucsc-global-header#readme",
   "paths": {
     "tasks": "gulp-tasks/",
     "src": "project/",
-    "build": "_dist/",
-    "bower": "bower_components/",
-    "vendor": {
-      "src": "project/js/lib/",
-      "dest": "_dist/js/"
-    },
-    "js": {
-      "src": "assets/js/",
-      "dest": "assets/js/"
-    },
     "scss": {
       "src": "assets/scss/"
     },
     "css": {
-      "src": "assets/css/",
-      "dest": "./"
+      "dest": "assets/css/"
     },
     "img": {
       "src": "assets/img/",
@@ -45,10 +34,7 @@
     }
   },
   "devDependencies": {
-    "bourbon": "^4.2.6",
-    "bourbon-neat": "^3.0.0",
     "gulp": "^4.0.2",
-    "gulp-auto-task": "^0.0.1",
     "gulp-autoprefixer": "^7.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-livereload": "^4.0.1",

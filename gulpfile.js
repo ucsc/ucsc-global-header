@@ -3,9 +3,6 @@
 var gulp = require('gulp'),
     // Config
     paths = require('./package.json').paths,
-    // Sass/CSS processes
-    bourbon = require('bourbon').includePaths,
-    neat = require('bourbon-neat').includePaths,
     sass = require('gulp-sass'),
     postcss = require('gulp-postcss'),
     autoprefixer = require('autoprefixer'),
@@ -53,7 +50,7 @@ function handleErrors() {
  * PostCSS Task Handler
  */
 gulp.task('postcss', function () {
-    return gulp.src(paths.scss.src + 'main.scss')
+    return gulp.src(paths.scss.src + 'plugin.scss')
         // Error handling
         .pipe(plumber({
             errorHandler: handleErrors
@@ -61,9 +58,8 @@ gulp.task('postcss', function () {
         // Wrap tasks in a sourcemap
         .pipe(sourcemaps.init())
         .pipe(sass({
-            includePaths: [].concat(bourbon, neat),
             errLogToConsole: true,
-            outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
+            outputStyle: 'expanded'
         }))
         // livereload
         .pipe(livereload())
@@ -73,12 +69,12 @@ gulp.task('postcss', function () {
         // creates the sourcemap
         .pipe(sourcemaps.write())
         // rename
-        .pipe(rename('style.css'))
+        .pipe(rename('plugin.css'))
         .pipe(gulp.dest(paths.css.dest));
 });
 
 gulp.task('css:minify', gulp.series('postcss'), function () {
-    return gulp.src(paths.scss.src + 'main.scss')
+    return gulp.src(paths.scss.src + 'plugin.scss')
         // Error handling
         .pipe(plumber({
             errorHandler: handleErrors
@@ -88,7 +84,6 @@ gulp.task('css:minify', gulp.series('postcss'), function () {
             safe: true
         }))
         .pipe(rename('style.min.css'))
-        // .pipe(gulp.dest('./'))
         .pipe(gulp.dest(paths.css.dest))
         .pipe(notify({
             message: 'Styles are built.'
@@ -98,10 +93,7 @@ gulp.task('css:minify', gulp.series('postcss'), function () {
 
 gulp.task('sass:lint', gulp.series('css:minify'), function () {
     gulp.src([
-        // 'sass/style.scss',
-        paths.scss.src + 'main.scss',
-        // '!sass/base/html5-reset/_normalize.scss',
-        // '!sass/utilities/animate/**/*.*'
+        paths.scss.src + 'plugin.scss'
     ])
         .pipe(sassLint())
         .pipe(sassLint.format())

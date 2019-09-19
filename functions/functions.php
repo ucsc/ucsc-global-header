@@ -5,7 +5,7 @@
  */
 function ucsc_global_header_scripts()
 {
-    $file_url = plugins_url('style.css', dirname(__FILE__));
+    $file_url = plugins_url('assets/css/plugin.css', dirname(__FILE__));
     wp_enqueue_style('ucsc_global_header', $file_url);
 }
 
