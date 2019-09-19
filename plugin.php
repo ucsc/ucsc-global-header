@@ -24,7 +24,7 @@
  */
 
 // Plugin Directory
-define('UCSC_OMNI_DIR', dirname(__FILE__));
+define('UCSC_OMNI_DIR', plugin_dir_path(__FILE__));
 
 // Plugin Settings
 /** commented out until we need to add a settings page */
