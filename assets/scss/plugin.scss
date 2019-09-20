@@ -18,7 +18,7 @@
   padding: .25em 0;
 
   .ucsc-global-row {
-    max-width: 60em;
+    max-width: 67.5em;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 25% 75%;
@@ -73,6 +73,30 @@
       }
     }
 
+  }
+
+  .ucsc-global-search-form {
+    background-color: white;
+    display: inline-block;
+    padding: .025em .25em;
+    font-size: 1rem;
+    border-radius: 5px;
+
+    input[type="text"] {
+      border: none;
+      font-size: 1em;
+    }
+
+    input[type="image"] {
+      position: relative;
+      top: .18em;
+
+    }
+
+  }
+
+  .ucsc-global-home-link img {
+    width: 108px;
   }
 
 

@@ -38,8 +38,9 @@ add_action('ucsc_before_header', 'ucsc_add_global_header');
 
 function ucsc_add_global_header()
 {
-    $logo = plugin_dir_url(__FILE__) . '../assets/img/logo-abbr.png';
-    $custom_title = '<a class="ucsc-global-home-link" href="https://www.ucsc.edu">UC Santa Cruz</a>';
+    $logo = plugin_dir_url(__FILE__) . '../assets/img/uc-santa-cruz.svg';
+    $search_btn = plugin_dir_url(__FILE__) . '../assets/img/search.svg';
+    $custom_title = '<a class="ucsc-global-home-link" href="https://www.ucsc.edu"><img src="' . $logo . '" alt="UC Santa Cruz" /></a>';
     
     echo '<div class="ucsc-global-container">';
     echo '<div class="ucsc-global-row">';
@@ -58,6 +59,16 @@ function ucsc_add_global_header()
     echo '<li><a href="https://www.ucsc.edu/visit/maps-directions.html">Maps</a></li>';
     echo '<li><a href="https://www.ucsc.edu/tools/azindex.html">A-Z Index</a></li>';
     echo '</ul>';
+
+    //get_search_form($args = ["echo" => true, "aria_label" => "something"]);
+
+    // $q = the_search_query();
+
+    echo '<form class="ucsc-global-search-form" action="/" method="get">';
+    echo '<label for="search" class="screen-reader-text">Search this site</label>';
+    echo '<input type="text" name="s" id="search" value="" />';
+    echo '<input type="image" alt="Search" src="'. $search_btn .'" />';
+    echo '</form>';
 
     echo '</div>';
     echo '</div>';
