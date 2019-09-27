@@ -27,7 +27,7 @@
 define('UCSC_GLOBAL_HEADER_DIR', plugin_dir_path(__FILE__));
 
 // Plugin Settings** commented out until we need to add a settings page */
-// include_once(UCSC_GLOBAL_HEADER_DIR . '/functions/admin.php');
+include_once(UCSC_GLOBAL_HEADER_DIR . '/functions/admin.php');
 
 // Plugin Functions
 include_once(UCSC_GLOBAL_HEADER_DIR . '/functions/functions.php');
