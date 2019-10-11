@@ -1,6 +1,6 @@
 <?php
 /*
- * Blackbird Starter Plugin Settings Admin Area
+ * UCSC Global Header Settings Admin Area
  * 
  * Adds custom theme setting admin area
  * These Theme Settings were created with the help
@@ -33,13 +33,12 @@
  * 
  */
 
-add_action('admin_menu', 'plugin_admin_add_page');
-
 function plugin_admin_add_page() {
     // Change the names of these options to reflect the actual name
-    // see:
-    add_menu_page('Blackbird Custom Plugin Page', 'Blackbird Custom Plugin Settings', 'administrator', 'bb-starter-plugin', 'bb_starter_plugin_settings_page','dash-icons-generic');
+    add_menu_page('UCSC Global Header Settings', 'UCSC Global Header Settings', 'administrator', 'ucsc-global-header-plugin', 'ucsc_global_header_settings_page','dash-icons-generic');
 }
+
+add_action('admin_menu', 'plugin_admin_add_page');
 
 /*
  * Register settings
@@ -47,13 +46,13 @@ function plugin_admin_add_page() {
  * register_setting( $option_group, $option_name, $sanitize_callback
  * 
  */
-add_action( 'admin_init', 'bb_starter_plugin_settings' );
+// add_action( 'admin_init', 'ucsc_global_header_settings' );
 
-function bb_starter_plugin_settings() {
-	register_setting( 'bb-starter-plugin-settings-group', 'item_one' );
-	register_setting( 'bb-starter-plugin-settings-group', 'item_two' );
-	register_setting( 'bb-starter-plugin-settings-group', 'item_three' );
-}
+// function ucsc_global_header_settings() {
+//     register_setting( 'ucsc-global-header-settings-group', 'ucsc_max_width' );
+//     register_setting( 'ucsc-global-header-settings-group', 'ucsc_show_logo' );
+// 	register_setting( 'ucsc-global-header-settings-group', 'ucsc_show_search' );
+// }
 
 /*
  * 
@@ -64,117 +63,61 @@ function bb_starter_plugin_settings() {
  * 
  */
 
-/*
- * This function is a sample of a "Bad" form. 
- * It is included for educational purposes only
- */
 
-function bb_starter_plugin_settings_page1() {
-    ?>
-<div class="starter-wrap">
-     <a href="http://www.blackbirdconsult.com" target="blank"><img src="<?php echo plugins_url('blackbird-pagespeed-plugin/lib/images/blackbird-logo.png')?>"></a>
-<h2>Starter Plugin Options</h2>
+function ucsc_global_header_settings_page() {
+?>
 
-
+<div class="pagespeed-wrap">     
+<h2>UCSC Global Header Options</h2>
 <form method="post" action="options.php">
-    <?php settings_fields( 'bb-starter-plugin-settings-group' ); ?>
-    <?php do_settings_sections( 'bb-starter-plugin-settings-group' ); ?>
-    <table class="form-table">
-        <tr valign="top">
-        <th scope="row">Item One</th>
-        <td><input type="checkbox" name="item_one" value="" /></td>
-        </tr>
-         
-        <tr valign="top">
-        <th scope="row">Item Two</th>
-        <td><input type="checkbox" name="item_two" value="" /></td>
-        </tr>
-        
-        <tr valign="top">
-        <th scope="row">Item Three</th>
-        <td><input type="checkbox" name="item_three" value="" /></td>
-        </tr>
-    </table>
-    
+    <?php settings_fields('ucsc-global-header-settings-group'); ?>
+    <?php do_settings_sections('ucsc-global-header-settings-group'); ?>
     <?php submit_button(); ?>
-
 </form>
-</div><?php
-    
-}
-/*
- * This Starter Page settings funciton
- * has the "good" form.
- */
+</div>
 
-function bb_starter_plugin_settings_page() {
-    ?>
-<div class="pagespeed-wrap">
-     <a href="http://www.blackbirdconsult.com" target="blank"><img src="<?php echo plugins_url('blackbird-pagespeed-plugin/lib/images/blackbird-logo.png')?>"></a>
-<h2>Starter Plugin Options</h2>
-<p>These are "dummy" options that can be customized for your own purposes. See /functions/admin.php</p>
-<form method="post" action="options.php">
-    <?php settings_fields( 'bb-starter-plugin-settings-group' ); ?>
-    <?php do_settings_sections( 'bb-starter-plugin-settings-group' ); ?>
-    <table class="form-table">
-        <tr valign="top">
-        <th scope="row">Item One</th>
-        <td><?php 
-        // Get an array of options from the database.
-$bb1_options = get_option( 'item_one' );
- 
-// Get the value of this option.
-$bb1_checked = $bb1_options;
- 
-// The value to compare with (the value of the checkbox below).
-$bb1_current = 1; 
- 
-// True by default, just here to make things clear.
-$bb1_echo = true;
-        ?><input type="checkbox" name="item_one" value="1" <?php checked( $bb1_checked, $bb1_current, $bb1_echo ); ?>/></td>
-        </tr>
-         
-         <tr valign="top">
-        <th scope="row">Item Two</th>
-        <td><?php 
-        // Get an array of options from the database.
-$bb2_options = get_option( 'item_two' );
- 
-// Get the value of this option.
-$bb2_checked = $bb2_options;
- 
-// The value to compare with (the value of the checkbox below).
-$bb2_current = 1; 
- 
-// True by default, just here to make things clear.
-$bb2_echo = true;
-        ?><input type="checkbox" name="item_two" value="1" <?php checked( $bb2_checked, $bb2_current, $bb2_echo ); ?>/></td>
-        </tr>
-         
-        <tr valign="top">
-        <th scope="row">Item Three</th>
-        <td><?php 
-        // Get an array of options from the database.
-$bb3_options = get_option( 'item_three' );
- 
-// Get the value of this option.
-$bb3_checked = $bb3_options;
- 
-// The value to compare with (the value of the checkbox below).
-$bb3_current = 1; 
- 
-// True by default, just here to make things clear.
-$bb3_echo = true;
-        ?><input type="checkbox" name="item_three" value="1" <?php checked( $bb3_checked, $bb3_current, $bb3_echo ); ?>/></td>
-        </tr>
-    </table>
-    
-    <?php submit_button(); ?>
-
-</form>
-</div><?php
-    
+<?php
 }
+
+
+function display_ucsc_max_width()
+{
+	?>
+		<input type="number" name="ucsc_max_width" value="<?php get_option('ucsc_max_width'); ?>" /> 
+	<?php
+}
+
+
+function display_ucsc_search()
+{
+	?>
+		<input type="checkbox" name="ucsc_show_search" value="0" <?php checked(0, get_option('ucsc_show_search'), true); ?> /> 
+	<?php
+}
+
+function display_ucsc_logo()
+{
+	?>
+		<input type="checkbox" name="ucsc_show_logo" value="0" <?php checked(0, get_option('ucsc_show_logo'), true); ?> /> 
+	<?php
+}
+
+function display_theme_panel_fields()
+{
+	add_settings_section("ucsc-global-header-settings-group", "Toggle Elements", null, "ucsc-global-header-settings-group");
+	
+	add_settings_field("ucsc_max_width", "Max width of the global header", "display_ucsc_max_width", "ucsc-global-header-settings-group", "ucsc-global-header-settings-group");
+    add_settings_field("ucsc_show_logo", "Show UCSC logo in upper left", "display_ucsc_logo", "ucsc-global-header-settings-group", "ucsc-global-header-settings-group");
+    add_settings_field("ucsc_show_search", "Show the search box", "display_ucsc_search", "ucsc-global-header-settings-group", "ucsc-global-header-settings-group");
+
+    register_setting( 'ucsc-global-header-settings-group', 'ucsc_max_width' );
+    register_setting( 'ucsc-global-header-settings-group', 'ucsc_show_logo' );
+	register_setting( 'ucsc-global-header-settings-group', 'ucsc_show_search' );
+
+}
+
+add_action("admin_init", "display_theme_panel_fields");
+
 
 
 

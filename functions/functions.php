@@ -43,17 +43,18 @@ function ucsc_add_global_header()
     $custom_title = '<a class="ucsc-global-home-link" href="https://www.ucsc.edu"><img src="' . $logo . '" alt="UC Santa Cruz" /></a>';
     
     echo '<div class="ucsc-global-container">';
-    echo '<div class="ucsc-global-row">';
+    echo '<div class="ucsc-global-row wrap">';
     echo '<div class="ucsc-global-left">';
     
-    echo $custom_title;
+    echo '&nbsp;';
     
     echo '</div>';
 
     echo '<div class="ucsc-global-right">';
 
     echo '<ul class="ucsc-global-menu">';
-    echo '<li><a href="https://my.ucsc.edu" title="The student portal">MyUCSC</a></li>';
+    echo '<li><a href="https://www.ucsc.edu">UCSC Home</a></li>';
+    echo '<li><a href="https://my.ucsc.edu">MyUCSC</a></li>';
     echo '<li><a href="https://www.ucsc.edu/tools/people.html">People</a></li>';
     echo '<li><a href="https://www.ucsc.edu/tools/calendars.html">Calendars</a></li>';
     echo '<li><a href="https://www.ucsc.edu/visit/maps-directions.html">Maps</a></li>';
